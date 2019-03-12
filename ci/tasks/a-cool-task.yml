@@ -1,0 +1,16 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: ubuntu
+
+
+inputs:
+- name: concourse-demo
+
+params:
+  A_VERY_COOL_ENV:	"rally-int"
+
+run:
+  path: concourse-demo/ci/tasks/a-cool-task.sh
