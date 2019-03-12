@@ -1,5 +1,5 @@
 jobs:
-  - name: a-cool-job
+  - name: sandbox-git-auth
     plan:
     - get: concourse-demo
       trigger: true
@@ -12,6 +12,7 @@ resources:
 - name: concourse-demo
   type: git
   source:
-    uri: git@github.com:jctbmw/concourse-demo.git
-    branch: master
-    private_key: {{cool_project_github_private_key}}
+    uri: https://github.com/jctbmw/concourse-demo.git
+    branch: develop
+    username: jctbmw
+    password: charles328T
