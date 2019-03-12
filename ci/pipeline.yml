@@ -1,0 +1,17 @@
+jobs:
+  - name: a-cool-job
+    plan:
+    - get: concourse-demo
+      trigger: true
+    - task: a-cool-task
+      file: concourse-demo/ci/tasks/a-cool-task.yml
+      params:
+        A_VERY_COOL_ENV:  {{value_for_a_very_cool_env}}
+
+resources:
+- name: concourse-demo
+  type: git
+  source:
+    uri: git@github.com:jctbmw/concourse-demo.git
+    branch: master
+    private_key: {{cool_project_github_private_key}}
